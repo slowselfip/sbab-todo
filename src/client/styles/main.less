@@ -1,0 +1,106 @@
+@import (css) url("https://fonts.googleapis.com/css?family=Open+Sans:200,300,700");
+@import (reference) "variables.less";
+
+* {
+  box-sizing: border-box;
+}
+
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+h1 {
+  margin: 0;
+  font-size: 5rem;
+}
+
+body, html {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Open Sans';
+  transition: background-color 0.2s ease;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+#root {
+  height: 100%;
+}
+
+input:focus,
+div:focus,
+button:focus {
+  outline: 0;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, .5);
+}
+
+main {
+  height: 100%;
+  width: 100%;
+  max-width: @max-main-width;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  @media screen and (max-width: @max-main-width) {
+    padding: 0 0.5rem;
+  }
+  > .heading {
+    height: 8rem;
+    display: flex;
+    align-items: flex-end;
+    h1 {
+      color: #fe6119;
+    }
+    :first-child {
+      flex: 1;
+    }
+    button {
+      transition: background-color 0.5s ease;
+      border: 0;
+      color: #444;
+      border-radius: 4px;
+      background-color: #bbb;
+      font-size: 0.75rem;
+      padding: 0.5rem;
+      font-weight: 100;
+      margin: 0 0 1.25rem 1rem;
+      &:hover {
+        background-color: darken(#bbb, 10%);
+      }
+    }
+  }
+  > .todo-section {
+    overflow-y: auto;
+  }
+}
+
+.light {
+  @import (reference) "light.less";
+  background-color: @bg;
+  color: @fg;
+  input {
+    border: 1px solid @border-color;
+    color: @text-field-color;
+  }
+  input::placeholder {
+    color: @placeholder-color;
+  }
+}
+
+.dark {
+  @import (reference) "dark.less";
+  background-color: @bg;
+  color: @fg;
+  input {
+    border: 1px solid @border-color;;
+    background: @top-layer-bg;
+    color: @text-field-color;
+  }
+}

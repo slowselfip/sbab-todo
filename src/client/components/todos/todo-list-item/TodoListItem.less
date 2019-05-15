@@ -1,0 +1,76 @@
+@import (reference) "../../../styles/variables.less";
+
+.todo {
+  font-size: 1.25rem;
+  display: flex;
+  padding: 1rem;
+  border: 1px solid;
+  margin-bottom: 3px;
+  transition: background-color 0.2s ease;
+  cursor: pointer;
+
+  &__checkbox-wrapper {
+    display: flex;
+    align-items: center;
+    font-size: 0.5em;
+    > label {
+      cursor: pointer
+    }
+  }
+  &__description {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    margin-left: 1rem;
+  }
+  &__checkbox {
+    cursor: pointer;
+  }
+  &__actions {
+    display: flex;
+    align-items: center;
+    padding: 0.25rem;
+  }
+  &__action-icon {
+    font-size: 1rem;
+  }
+  &--completed {
+    .todo__description {
+      text-decoration: line-through;
+    }
+  }
+}
+
+.light {
+  @import (reference) "../../../styles/light";
+  .todo {
+    background: @top-layer-bg;
+    border-color: @border-color;
+    &:hover {
+      background-color: @top-layer-highlight
+    }
+    &__action-icon {
+      color: @icon-color;
+      &:hover {
+        color: @icon-color-hover;
+      }
+    }
+  }
+}
+
+.dark {
+  @import (reference) "../../../styles/dark";
+  .todo {
+    background: @top-layer-bg;
+    border-color: @border-color;
+    &:hover {
+      background-color: @top-layer-highlight
+    }
+    &__action-icon {
+      color: @icon-color;
+      &:hover {
+        color: @icon-color-hover;
+      }
+    }
+  }
+}

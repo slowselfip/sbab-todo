@@ -1,0 +1,25 @@
+{
+  "parser": "babel-eslint",
+  "extends": ["airbnb", "prettier", "prettier/react"],
+  "plugins": ["prettier", "react-hooks"],
+  "env": {
+    "browser": true,
+    "jest": true,
+    "es6": true
+  },
+  "globals": {
+    "TODO_SERVICE_PROTOCOL": true,
+    "TODO_SERVICE_HOST": true,
+    "TODO_SERVICE_PORT": true,
+    "TODO_URL": true,
+    "ORDER_URL": true
+  },
+  "rules": {
+    "prettier/prettier": ["error"],
+    "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
+    "prefer-destructuring": ["error", {"object": true, "array": false}],
+    "jsx-a11y/click-events-have-key-events": 0,
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn"
+  }
+}
