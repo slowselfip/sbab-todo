@@ -10,11 +10,11 @@ import {
   createTodo,
   fetchTodos,
   updateTodo,
-  getTodos,
   deleteTodos,
   swapTodosAndSaveOrder,
   deleteAllTodos
-} from '../data/todos/reducer';
+} from '../data/todos/action-creators';
+import { getTodos } from '../data/todos/reducer';
 import { TodoList } from './todos';
 import ThemeButton from './theme-button/ThemeButton';
 

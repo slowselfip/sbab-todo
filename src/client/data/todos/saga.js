@@ -1,5 +1,11 @@
 import { all, takeEvery, takeLatest, call, put, delay, select } from 'redux-saga/effects';
-import {
+import { swapTodos } from './action-creators';
+import { getTodoIds } from './reducer';
+import actionTypes from './action-types';
+import { apiRequest } from '../../util/saga-util';
+import api from './api';
+
+const {
   TODO_CREATE_REQUEST,
   TODO_CREATE_SUCCESS,
   TODO_CREATE_FAILURE,
@@ -15,14 +21,10 @@ import {
   TODOS_SWAP_AND_SAVE_ORDER,
   TODO_ORDER_SAVE_SUCCESS,
   TODO_ORDER_SAVE_FAILURE,
-  swapTodos,
-  getTodoIds,
   TODO_DELETE_ALL_REQUEST,
   TODO_DELETE_ALL_SUCCESS,
   TODO_DELETE_ALL_FAILURE
-} from './reducer';
-import { apiRequest } from '../../util/saga-util';
-import api from './api';
+} = actionTypes;
 
 function* fetchTodos() {
   yield call(apiRequest, api.fetchTodos, TODO_FETCH_SUCCESS, TODO_FETCH_FAILURE);
