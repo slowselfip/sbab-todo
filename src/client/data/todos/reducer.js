@@ -52,16 +52,11 @@ function byId(state = {}, action = {}) {
         return newState;
       }
 
-      // If multiple, transform list to map of undefined props and us it to clone state selectively
+      // If multiple loop and delete.
       if (ids.length > 1) {
-        return Object.assign(
-          {},
-          state,
-          ids.reduce((acc, id) => {
-            acc[id] = undefined;
-            return acc;
-          }, {})
-        );
+        const newState = { ...state };
+        ids.forEach(id => delete newState[id]);
+        return newState;
       }
 
       return state;
